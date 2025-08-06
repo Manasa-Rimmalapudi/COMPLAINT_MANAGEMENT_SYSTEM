@@ -1,0 +1,98 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode design system with brand colors */
+@layer base {
+  :root {
+    --background: 220 13% 9%;
+    --foreground: 220 9% 95%;
+
+    --card: 220 13% 11%;
+    --card-foreground: 220 9% 95%;
+
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 9% 95%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 13% 9%;
+
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 9% 95%;
+
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 262 83% 70%;
+    --accent-foreground: 220 13% 9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 9% 95%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 15%;
+    --ring: 217 91% 60%;
+
+    --radius: 4px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Source Sans Pro', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground font-primary antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Custom components for the app */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border;
+  }
+
+  .brand-gradient {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  }
+
+  .status-badge {
+    @apply px-2 py-1 rounded text-xs font-medium;
+  }
+
+  .chat-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-2 rounded-lg;
+  }
+
+  .chat-bubble-user {
+    @apply bg-primary text-primary-foreground ml-auto;
+  }
+
+  .chat-bubble-bot {
+    @apply bg-muted text-muted-foreground mr-auto;
+  }
+}
